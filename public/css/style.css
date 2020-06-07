@@ -1,0 +1,26 @@
+
+body {
+    background-color: whitesmoke;
+    font-family: Impact;
+}
+table {
+    border-collapse: collapse;
+    width: 85%;
+    padding-top: 70px;
+}
+table, th, td {
+    border: 3px solid black;
+}
+
+td {
+    height: 20px;
+    text-align: center;
+    font-size: 18px;
+}
+.btn-primary {
+ margin-bottom: 50px;
+
+}
+.btn-danger{
+    background-color: red;
+}
