@@ -18,3 +18,4 @@ Route::get('/', function () {
 });
 
 Route::resource('contacts', 'ContactController');
+Route::post('uploadfile', 'ContactController@store');

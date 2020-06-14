@@ -8,16 +8,21 @@
                 <thead>
 
                 <tr>
-                    <td>Název</td>
-                    <td>Interpret</td>
-                    <td>Žánr</td>
-                    <td>Rok vydání</td>
+                    <td>Obal</td>
+                    <td> @sortablelink('name')</td>
+                    <td> @sortablelink('interpret')</td>
+                    <td> @sortablelink('genre')</td>
+                    <td> @sortablelink('release_year')</td>
                     <td colspan = 2>Akce</td>
                 </tr>
                 </thead>
-                <div>
+
+                <div id="NovyZaznam">
+
                     <a style="margin: 19px;" href="{{ route('contacts.create')}}" class="btn btn-primary">Nový záznam</a>
+
                 </div>
+
                 <tbody>
                 <div class="col-sm-12">
 
@@ -29,16 +34,19 @@
                 </div>
                 @foreach($contacts as $contact)
                     <tr>
+
+                        <td><img src="{{$contact->obal}}" width="100" height="100"/></td>
                         <td>{{$contact->name}}</td>
                         <td>{{$contact->interpret}}</td>
                         <td>{{$contact->genre}}</td>
                         <td>{{$contact->release_year}}</td>
+                        <!--Session::get('path')-->
 
                         <td>
                             <a href="{{ route('contacts.edit',$contact->id)}}" class="btn btn-primary">Edit</a>
                         </td>
                         <td>
-                            <form action="{{ route('contacts.destroy', $contact->id)}}" method="post">
+                            <form action="{{ route('contacts.destroy', $contact->id)}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 @method('DELETE')
                                 <button class="btn btn-danger" type="submit">Smazat</button>

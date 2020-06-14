@@ -3,7 +3,7 @@
 @section('main')
     <div class="row">
         <div class="col-sm-8 offset-sm-2">
-            <h1 class="display-3">Add a contact</h1>
+            <h1 class="display-3">Nové CD</h1>
             <div>
                 @if ($errors->any())
                     <div class="alert alert-danger">
@@ -14,7 +14,7 @@
                         </ul>
                     </div><br />
                 @endif
-                <form method="post" action="{{ route('contacts.store') }}">
+                <form method="post" enctype="multipart/form-data" action="{{ route('contacts.store') }}">
                     @csrf
                     <div class="form-group">
                         <label for="name">Název:</label>
@@ -35,7 +35,12 @@
                         <input type="text" class="form-control" name="release_year"/>
                     </div>
 
-                    <button type="submit" class="btn btn-primary-outline">Přidat</button>
+                    <div class="form-group">
+                        <label for="obal">Obal:</label>
+                        <input type="file" name="obal" class="form-control" enctype="multipart/form-data">
+                    </div>
+
+                    <button type="submit" class="btn btn-primary-outline" name="upload" value="Upload">Přidat</button>
                 </form>
             </div>
         </div>
